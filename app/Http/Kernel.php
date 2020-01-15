@@ -1,5 +1,26 @@
 <?php
 
+/* добавлено начало */
+namespace App\Http\Controllers;
+
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Conroller;
+
+class TaskController extends Controller
+{
+    /**
+     * Создание нового экземпляра контроллера
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')
+    }
+}
+/* добавлено конец*/
+
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;

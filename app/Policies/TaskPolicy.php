@@ -11,7 +11,7 @@ class TaskPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine if the given user can delete the given task.
+     * Определяем, может ли данный пользователь удалить данную задачу.
      *
      * @param  User  $user
      * @param  Task  $task

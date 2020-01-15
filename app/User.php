@@ -26,7 +26,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get all of the tasks for the user.
+     * Получить все задачи пользователя.
      */
     public function tasks()
     {

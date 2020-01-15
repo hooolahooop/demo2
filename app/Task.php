@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     /**
-     * The attributes that are mass assignable.
+     * Массово присваиваемые атрибуты.
      *
      * @var array
      */
@@ -24,7 +24,7 @@ class Task extends Model
     ];
 
     /**
-     * Get the user that owns the task.
+     * Получить пользователя - владельца данной задачи
      */
     public function user()
     {

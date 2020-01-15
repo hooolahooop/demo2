@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
 use App\Task;
+use App\Http\Requests;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
 
 class TaskController extends Controller
 {
     /**
-     * The task repository instance.
-     *
-     * @var TaskRepository
-     */
+    * Экземпляр TaskRepository.
+    *
+    * @var TaskRepository
+    */
     protected $tasks;
 
     /**
-     * Create a new controller instance.
+     * Создание нового экземпляра контроллера.
      *
      * @param  TaskRepository  $tasks
      * @return void
@@ -31,22 +29,24 @@ class TaskController extends Controller
 
         $this->tasks = $tasks;
     }
-
+    
     /**
-     * Display a list of all of the user's task.
+     * Показать список всех задач пользователя.
      *
      * @param  Request  $request
      * @return Response
      */
     public function index(Request $request)
     {
+        /*$tasks = $request->user()->tasks()->get();*/
+
         return view('tasks.index', [
             'tasks' => $this->tasks->forUser($request->user()),
         ]);
     }
 
     /**
-     * Create a new task.
+     * Создание новой задачи.
      *
      * @param  Request  $request
      * @return Response
@@ -65,10 +65,10 @@ class TaskController extends Controller
     }
 
     /**
-     * Destroy the given task.
+     * Уничтожение заданную задачу.
      *
      * @param  Request  $request
-     * @param  Task  $task
+     * @param  string  $taskId
      * @return Response
      */
     public function destroy(Request $request, Task $task)
